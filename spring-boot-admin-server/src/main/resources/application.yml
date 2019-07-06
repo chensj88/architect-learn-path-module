@@ -1,0 +1,22 @@
+eureka:
+  instance:
+    hostname: localhost
+    lease-expiration-duration-in-seconds: 30
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    region: ch-east-1
+spring:
+  application:
+    name: spring-boot-admin-server
+  boot:
+    admin:
+      routes:
+        endpoints: env, metrics, trace, dump, jolokia, info, configprops, activiti, logfile, refresh, flyway, liquibase, loggers,hystrix.stream
+server:
+  port: 5000
+management:
+  security:
+    enabled: false
+logging:
+  file: 'logs/spring-boot-admin-sample.log'

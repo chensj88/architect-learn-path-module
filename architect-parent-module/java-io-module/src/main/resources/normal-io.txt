@@ -1,0 +1,1 @@
+这是一个FileInputStream读取数据的样例
