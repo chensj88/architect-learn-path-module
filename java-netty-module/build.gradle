@@ -1,0 +1,29 @@
+// 类似于maven的pom.xml文件
+plugins {
+    id 'java'
+}
+
+group 'org.chen.architect'
+version '1.0.0'
+// 源代码版本
+sourceCompatibility = 1.8
+// target版本
+targetCompatibility = 1.8
+
+// 使用仓库信息
+repositories {
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
+    maven { url 'https://repo.huaweicloud.com/repository/maven/' }
+    maven { url 'https://maven.aliyun.com/repository/public/' }
+    maven { url 'https://maven.aliyun.com/repository/spring/' }
+    mavenLocal()
+    jcenter()
+    mavenCentral()
+}
+
+// 依赖信息
+dependencies {
+    compile project(':netty-start-demo')
+    // https://mvnrepository.com/artifact/junit/junit
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

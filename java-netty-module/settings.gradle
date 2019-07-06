@@ -1,0 +1,6 @@
+// 项目信息描述
+// 根项目
+rootProject.name = 'java-netty-module'
+// 子模块
+include 'netty-start-demo'
+
