@@ -6,7 +6,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.*;
 import io.netty.util.CharsetUtil;
-import org.chen.architect.netty.Constants;
+import org.chen.architect.netty.base.Constants;
 
 import java.net.URI;
 
