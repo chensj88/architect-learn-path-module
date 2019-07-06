@@ -1,4 +1,4 @@
-package org.chen.architect.netty;
+package org.chen.architect.netty.base;
 
 /**
  * @author chensj
