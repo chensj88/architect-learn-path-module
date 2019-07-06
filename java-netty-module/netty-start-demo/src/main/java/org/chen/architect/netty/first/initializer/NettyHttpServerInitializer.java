@@ -33,6 +33,7 @@ public class NettyHttpServerInitializer extends ChannelInitializer<SocketChannel
         // 在处理最后增加一个处理
         // 第一个参数为 handler名称
         // 第二个参数为 handler
+        // HttpServerCodec 对http请求信息和响应信息进行编解码
         pipeline.addLast("httpServerCodec", new HttpServerCodec());
 
         // 设置自定义处理器
