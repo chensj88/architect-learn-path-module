@@ -1,10 +1,10 @@
-package org.chen.architect.netty.first.initializer;
+package org.chen.architect.netty.http.initializer;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.http.HttpServerCodec;
-import org.chen.architect.netty.first.handler.NettyHttpServerHandler;
+import org.chen.architect.netty.http.handler.NettyHttpServerHandler;
 
 /**
  * @author chensj

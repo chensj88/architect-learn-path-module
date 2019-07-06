@@ -6,4 +6,4 @@
  * @email chenshijie1988@yeah.net
  * @date 2019-07-06 20:41
  */
-package org.chen.architect.netty.first;
+package org.chen.architect.netty.http;

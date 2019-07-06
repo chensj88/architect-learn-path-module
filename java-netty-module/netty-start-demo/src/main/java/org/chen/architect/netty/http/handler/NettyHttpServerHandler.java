@@ -1,4 +1,4 @@
-package org.chen.architect.netty.first.handler;
+package org.chen.architect.netty.http.handler;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

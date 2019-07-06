@@ -1,11 +1,11 @@
-package org.chen.architect.netty.first;
+package org.chen.architect.netty.http;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import org.chen.architect.netty.first.initializer.NettyHttpServerInitializer;
+import org.chen.architect.netty.http.initializer.NettyHttpServerInitializer;
 
 /**
  * @author chensj
