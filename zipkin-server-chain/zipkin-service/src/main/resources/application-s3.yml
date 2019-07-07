@@ -1,0 +1,10 @@
+server:
+  port: 8033
+# zipkin 自定义参数
+zipkin:
+  serviceName: service3
+  endpointUrl: http://localhost:8700
+  connectTimeout: 5000
+  readTimeout: 6000
+  flushInterval: 1
+  compressionEnabled: false

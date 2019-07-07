@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: zipkin-service-${server.port}
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/cloud?useSSL=false&statementInterceptors=com.github.kristofa.brave.mysql.MySQLStatementInterceptor&zipkinServiceName=${spring.application.name}

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>zipkin-server-chain</artifactId>
+        <groupId>com.winning.devops</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>zipkin-service</artifactId>
+
+    <description>
+        服务请求测试方
+        项目启动命令
+            mvn spring-boot:run -Dspring-boot.run.profiles=s1
+            mvn spring-boot:run -Dspring-boot.run.profiles=s2
+            mvn spring-boot:run -Dspring-boot.run.profiles=s3
+            mvn spring-boot:run -Dspring-boot.run.profiles=s4
+        测试URL：
+        localhost:8031/zipkin/service1/test
+        项目启动命令
+            mvn spring-boot:run -Dspring-boot.run.profiles=as1
+            mvn spring-boot:run -Dspring-boot.run.profiles=as2
+            mvn spring-boot:run -Dspring-boot.run.profiles=as3
+            mvn spring-boot:run -Dspring-boot.run.profiles=as4
+        测试URL：
+            localhost:8031/zipkin/async/service1/test
+    </description>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--用于加载properties及自定义属性使用-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>io.zipkin.brave</groupId>
+            <artifactId>brave-core</artifactId>
+            <version>${brave.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.zipkin.brave</groupId>
+            <artifactId>brave-spancollector-http</artifactId>
+            <version>${brave.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.zipkin.brave</groupId>
+            <artifactId>brave-web-servlet-filter</artifactId>
+            <version>${brave.version}</version>
+        </dependency>
+        <!--brave-okhttp-->
+        <dependency>
+            <groupId>io.zipkin.brave</groupId>
+            <artifactId>brave-okhttp</artifactId>
+            <version>${brave.version}</version>
+        </dependency>
+        <!--brave-okhttp-->
+        <dependency>
+            <groupId>io.zipkin.brave</groupId>
+            <artifactId>brave-mysql</artifactId>
+            <version>${brave.version}</version>
+        </dependency>
+        <!-- async-http-client -->
+        <dependency>
+            <groupId>com.ning</groupId>
+            <artifactId>async-http-client</artifactId>
+            <version>${async.http.client.version}</version>
+        </dependency>
+        <!--添加Swagger2依赖-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.47</version>
+        </dependency>
+    </dependencies>
+</project>
