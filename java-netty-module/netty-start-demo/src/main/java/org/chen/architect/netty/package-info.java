@@ -27,5 +27,11 @@
  *  3、通过childHandler指定 Initializer (这个就是注册自定义Netty请求与响应的handler配置类)
  *  4、在Initializer的initChannel方法中 通过类似于FilterChains一样的方式设定handler顺序来处理请求
  *  5、最后在重写/覆盖handler中对应事件回调函数的处理代码
+ *
+ * 包说明：
+ *  base 存放公共信息
+ *  socket socket 开发
+ *  http http服务器
+ *  chat 聊天室
  */
 package org.chen.architect.netty;
