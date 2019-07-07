@@ -96,7 +96,8 @@ public class NettyChatServerHandler extends SimpleChannelInboundHandler<String> 
         channelGroup.writeAndFlush("[服务器] - " + channel.remoteAddress() + " 断开连接, 已离开 \n");
         // 注意下面代码可以写、或者不写都是可以的，
         // Netty 会自动断开连接
-        //channelGroup.remove(channel);
+        // 检查连接总数  查看Netty是否会自己移除channel
+        System.out.println("当前服务器连接总数: "+channelGroup.size());
     }
 
     /**
