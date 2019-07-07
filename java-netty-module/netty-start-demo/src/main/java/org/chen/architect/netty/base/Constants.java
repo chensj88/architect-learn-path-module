@@ -16,4 +16,9 @@ public class Constants {
      * 浏览器图标访问URL
      */
     public static final String ICO_PATH ="/favicon.ico";
+    /**
+     * 默认时间格式
+     */
+    public static final String DEFAULT_DATETIME_PATTERN = "yyyy-MM-dd HH:mm:ss.SSS";
+
 }
