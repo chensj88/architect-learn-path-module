@@ -1,0 +1,63 @@
+<!--
+ * @author chensj
+ * @title
+ * @package
+ * @date: 2019-07-10 21:50
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Websocket 客户端</title>
+</head>
+<body>
+<script type="text/javascript">
+    var socket;
+
+    if(window.WebSocket){
+        socket = new WebSocket("ws://localhost:8080/ws")
+
+        socket.onmessage = function (ev) {
+            var ele = document.getElementById('responseText');
+            ele.value = ele.value + '\n' + event.data;
+        }
+
+        socket.onopen = function (ev) {
+            var ele = document.getElementById('responseText');
+            ele.value = '连接开启';
+        }
+
+        socket.onclose = function (ev) {
+            var ele = document.getElementById('responseText');
+            ele.value = ele.value + '\n' +'连接关闭'
+        }
+
+    }else {
+        alert('当前浏览器不支持WebSocket')
+    }
+
+    function sendData(message) {
+        if(!window.WebSocket){
+            alert('当前浏览器不支持WebSocket')
+            return;
+        }
+
+        if(socket.readyState === WebSocket.OPEN){
+            socket.send(message);
+        }else{
+            alert('连接尚未开启!')
+        }
+    }
+
+</script>
+<form onsubmit="return false;">
+
+    <textarea id="message" style="width: 400px;height: 300px"></textarea>
+    <input type="button" value="发送信息" onclick="sendData(document.getElementById('message').value)">
+    <h3>服务输出：</h3>
+    <textarea id="responseText" style="width: 400px;height: 300px"></textarea>
+    <input type="button" value="清空内容"
+           onclick="javascript: document.getElementById('responseText').value = ''">
+</form>
+</body>
+</html>
