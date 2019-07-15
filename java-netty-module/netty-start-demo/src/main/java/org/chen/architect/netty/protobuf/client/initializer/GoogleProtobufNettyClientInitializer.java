@@ -7,8 +7,8 @@ import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
-import org.chen.architect.netty.protobuf.client.handler.GoogleProtobufNettyClientHandler;
-import org.chen.architect.netty.protobuf.client.model.DataInfo;
+import org.chen.architect.netty.protobuf.client.handler.GoogleProtobufNettyClientMultipartHandler;
+import org.chen.architect.netty.protobuf.client.model.MyDataInfo;
 
 /**
  * @author chensj
@@ -25,12 +25,15 @@ public class GoogleProtobufNettyClientInitializer extends ChannelInitializer<Soc
         // protobuf 处理器
         pipeline.addLast(new ProtobufVarint32FrameDecoder());
         // 需要指定转换的参数类型  最外层类名称
-        pipeline.addLast(new ProtobufDecoder(DataInfo.Person.getDefaultInstance()));
-
+        // 单一类型消息处理
+        //pipeline.addLast(new ProtobufDecoder(DataInfo.Person.getDefaultInstance()));
+        // 多种类型消息处理
+        pipeline.addLast(new ProtobufDecoder(MyDataInfo.MyMessage.getDefaultInstance()));
         pipeline.addLast(new ProtobufVarint32LengthFieldPrepender());
         pipeline.addLast(new ProtobufEncoder());
-
-        pipeline.addLast(new GoogleProtobufNettyClientHandler());
-
+        // 单一类型消息处理
+        //pipeline.addLast(new GoogleProtobufNettyClientHandler());
+        // 多种类型消息处理
+        pipeline.addLast(new GoogleProtobufNettyClientMultipartHandler());
     }
 }

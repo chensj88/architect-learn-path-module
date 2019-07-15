@@ -1,0 +1,41 @@
+syntax = "proto2";
+package org.chen.architect.netty.protobuf.client.model;
+option java_package = "org.chen.architect.netty.protobuf.client.model";
+option java_outer_classname = "MyDataInfo";
+
+// protoc.exe --java_out=G:\01_code\cloud\architect-learn-path-module\java-netty-module\netty-start-demo\src\main\java  Message.proto
+
+message MyMessage {
+    //  定义一个枚举类，用于区分不同的消息类型
+    enum DataType {
+        PersonType = 1;
+        DogType = 2;
+        CatType = 3;
+    }
+    //  消息类型
+    required DataType data_type = 1;
+    //  oneof 表示同一时间内只会一个消息类型
+    oneof dataBody {
+        Person person = 2;
+        Dog dog = 3;
+        Cat cat = 4;
+    }
+}
+message Person {
+    // = 1 标记元素
+    optional int32 id = 1;
+    optional string name = 2;
+    optional int32 age = 3;
+    optional string address = 4;
+}
+message Dog {
+    optional int32 id = 1;
+    optional string name = 2;
+    optional int32 age = 3;
+}
+message Cat {
+    optional int32 id = 1;
+    optional string name = 2;
+    optional string city = 3;
+}
+
