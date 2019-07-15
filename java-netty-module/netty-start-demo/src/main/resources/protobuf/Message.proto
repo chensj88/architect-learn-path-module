@@ -14,7 +14,7 @@ message MyMessage {
     }
     //  消息类型
     required DataType data_type = 1;
-    //  oneof 表示同一时间内只会一个消息类型
+    //  oneof 表示同一时间内只会一个消息类型，节省内存
     oneof dataBody {
         Person person = 2;
         Dog dog = 3;
