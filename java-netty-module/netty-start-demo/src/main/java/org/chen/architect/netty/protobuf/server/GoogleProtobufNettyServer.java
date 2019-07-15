@@ -5,6 +5,8 @@ import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
 import org.chen.architect.netty.protobuf.server.initializer.GoogleProtobufInitializer;
 
 /**
@@ -25,6 +27,7 @@ public class GoogleProtobufNettyServer {
 
             serverBootstrap.group(bossGroup,workerGroup)
                     .channel(NioServerSocketChannel.class)
+                    .handler(new LoggingHandler(LogLevel.INFO))
                     .childHandler(new GoogleProtobufInitializer());
 
             ChannelFuture channelFuture = serverBootstrap.bind(8080).sync();
