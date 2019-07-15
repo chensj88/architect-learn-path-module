@@ -18,8 +18,19 @@ repositories {
 }
 
 dependencies {
-    compile group: 'io.netty', name: 'netty-all', version: '4.1.36.Final'
-    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
-    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
+//    compile group: 'io.netty', name: 'netty-all', version: '4.1.36.Final'
+//    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+//    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
+//    // google protobuf 依赖
+//    compile 'com.google.protobuf:protobuf-java:3.8.0'
+//    compile 'com.google.protobuf:protobuf-java-util:3.8.0'
+//    统一管理依赖
+    compile (
+        'io.netty:netty-all:4.1.36.Final' ,
+        'org.apache.commons:commons-lang3:3.9',
+        'com.google.protobuf:protobuf-java:3.8.0',
+        'com.google.protobuf:protobuf-java-util:3.8.0',
+        'com.google.protobuf:protobuf-gradle-plugin:0.8.1'
+    )
 
 }
