@@ -1,0 +1,21 @@
+syntax = "proto2";
+// 用于解决不同项目的命名冲突
+package org.chen.architect.netty.protobuf.server.model;
+// 在java中，如果你未指定java_package，那么package就作为java的package
+// 如果你指定了java_package，你也需要指定package，避免在其他语言中使用存在问题
+option java_package = "org.chen.architect.netty.protobuf.server.model";
+// 输出java类的名称，这个类是包含这个文件所有类， 也就是说 AddressBookProtos 是外部类，
+// 而Person是AddressBookProtos的内部类
+// 如果没有设置则使用文件名称的驼峰命名
+option java_outer_classname = "DataInfo";
+
+// 消息定义，字段都是由基础的类型来构建的，或者通过组装的方式，来定义复杂类型
+// protoc.exe --java_out=G:\01_code\cloud\architect-learn-path-module\java-netty-module\netty-start-demo\src\main\java  Person.proto
+message Person {
+    // = 1 标记元素
+    required int32 id = 1;
+    required string name = 2;
+    optional int32 age = 3;
+    optional string address = 4;
+}
+
