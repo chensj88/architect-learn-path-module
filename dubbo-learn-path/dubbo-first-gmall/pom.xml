@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>dubbo-learn-path</artifactId>
+        <groupId>com.chen.dubbo</groupId>
+        <version>${chen.dubbo.version}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>dubbo-first-gmall</artifactId>
+
+    <packaging>pom</packaging>
+    <modules>
+        <module>user-service-provider</module>
+        <module>order-service-customer</module>
+        <module>gmall-api-module</module>
+    </modules>
+
+    <description>
+        1、创建服务提供者 user-service-provider
+        2、创建服务消费者 order-service-customer
+        3、提取公共的信息 如bean(数据结构) 接口信息到gmall-api-module中
+        4、让服务提供者注册到注册中心
+            1、 加入dubbo依赖
+        5、让服务消费者去注册中心订阅服务的提供者信息
+    </description>
+
+
+</project>

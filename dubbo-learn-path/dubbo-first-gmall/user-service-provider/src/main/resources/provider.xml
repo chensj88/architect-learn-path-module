@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+    <!--1、指定当前服务/应用的名称(同样的服务名称相同，但是不一样的服务不能同名)-->
+    <dubbo:application name="user-service-provider"/>
+
+    <!--2、指定注册中心的位置
+        参考文档：http://dubbo.apache.org/zh-cn/docs/user/references/registry/zookeeper.html
+        下面两种方式都是可以指定zookeeper地址
+    -->
+    <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181"/>
+    <!--<dubbo:registry address="zookeeper://127.0.0.1:2181"></dubbo:registry>-->
+
+    <!--3、指定通信规则
+        包含通信协议与通信接口
+        具体协议查看：http://dubbo.apache.org/zh-cn/docs/user/references/protocol/introduction.html
+        默认使用dubbo协议
+        -->
+    <dubbo:protocol name="dubbo" port="20080"/>
+
+    <!--
+        4、 声明需要暴露的的服务
+    -->
+    <dubbo:service interface="com.chen.dubbo.api.service.UserService"
+                   ref="userServiceImpl"/>
+    <!-- 4.1 和本地bean一样实现服务 -->
+    <bean id="userServiceImpl" class="com.chen.dubbo.service.impl.UserServiceImpl"/>
+</beans>
