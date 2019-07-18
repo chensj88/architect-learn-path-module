@@ -9,6 +9,7 @@
     <version>${chen.dubbo.version}</version>
     <modules>
         <module>dubbo-first-gmall</module>
+        <module>gmall-api-module</module>
     </modules>
 
     <packaging>pom</packaging>

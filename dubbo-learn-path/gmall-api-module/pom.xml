@@ -3,17 +3,16 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>dubbo-first-gmall</artifactId>
+        <artifactId>dubbo-learn-path</artifactId>
         <groupId>com.chen.dubbo</groupId>
-        <version>${chen.dubbo.version}</version>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>gmall-api-module</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
 
-    <description>
-        dubbo 公共接口服务
-        这个里面放置公共的bean、公共的接口信息
-    </description>
+    <packaging>jar</packaging>
+
 
 </project>

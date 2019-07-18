@@ -1,6 +1,6 @@
 package com.chen.dubbo;
 
-import com.chen.dubbo.api.service.OrderSerice;
+import com.chen.dubbo.api.service.OrderService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
@@ -18,7 +18,7 @@ public class CustomerApplication {
     public static void main(String[] args) throws IOException {
        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("consumer.xml");
 
-        OrderSerice bean = applicationContext.getBean(OrderSerice.class);
+        OrderService bean = applicationContext.getBean(OrderService.class);
         bean.initOrder("1");
         System.out.println("调用结束");
         System.in.read();

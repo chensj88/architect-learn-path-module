@@ -1,7 +1,7 @@
 package com.chen.dubbo.service.impl;
 
 import com.chen.dubbo.api.bean.UserAddress;
-import com.chen.dubbo.api.service.OrderSerice;
+import com.chen.dubbo.api.service.OrderService;
 import com.chen.dubbo.api.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ import java.util.List;
  * @date 2019-07-16 21:59
  */
 @Service
-public class OrderSeviceImpl implements OrderSerice {
+public class OrderServiceImpl implements OrderService {
 
     @Autowired
     UserService userService;
