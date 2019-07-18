@@ -1,9 +1,9 @@
-package com.chen.dubbo.service.impl;
+package com.chen.dubbo.boot.service.impl;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.chen.dubbo.api.bean.UserAddress;
 import com.chen.dubbo.api.service.OrderService;
 import com.chen.dubbo.api.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +19,10 @@ import java.util.List;
 @Service
 public class OrderServiceImpl implements OrderService {
 
-    @Autowired
+    /**
+     * dubbo依赖引用
+     */
+    @Reference
     UserService userService;
     @Override
     public List<UserAddress> initOrder(String userId) {

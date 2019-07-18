@@ -1,5 +1,9 @@
 package com.chen.dubbo.api.service;
 
+import com.chen.dubbo.api.bean.UserAddress;
+
+import java.util.List;
+
 /**
  * @author chensj
  * @version v1.0
@@ -13,5 +17,5 @@ public interface OrderService {
      * 初始化订单
      * @param userId 用户订单
      */
-    public void initOrder(String userId);
+    public List<UserAddress> initOrder(String userId);
 }

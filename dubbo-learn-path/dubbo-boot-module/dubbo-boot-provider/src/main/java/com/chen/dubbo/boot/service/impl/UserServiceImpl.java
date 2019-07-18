@@ -1,8 +1,8 @@
-package com.chen.dubbo.service.impl;
+package com.chen.dubbo.boot.service.impl;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.chen.dubbo.api.bean.UserAddress;
 import com.chen.dubbo.api.service.UserService;
-import org.apache.dubbo.config.annotation.Service;
 
 import java.util.Arrays;
 import java.util.List;

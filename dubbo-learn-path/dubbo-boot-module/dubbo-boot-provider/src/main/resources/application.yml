@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: dubbo-boot-provider
+  main:
+    allow-bean-definition-overriding: true
+server:
+  port: 8000
+dubbo:
+  application:
+    name: ${spring.application.name}
+  registry:
+    protocol: zookeeper
+    address: 127.0.0.1:2181
+  protocol:
+    name: dubbo
+    port: 20080
+  monitor:
+    protocol: registry
