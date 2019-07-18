@@ -13,8 +13,11 @@
     <artifactId>dubbo-learn-path</artifactId>
     <version>${chen.dubbo.version}</version>
     <modules>
-        <module>dubbo-first-gmall</module>
+        <!--公共接口 定义提供给使用者实现-->
         <module>gmall-api-module</module>
+        <!--dubbo 基本实现-->
+        <module>dubbo-first-gmall</module>
+        <!--dubbo 与 spring boot 集成实现-->
         <module>dubbo-boot-module</module>
     </modules>
 
