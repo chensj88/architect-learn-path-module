@@ -28,4 +28,9 @@
                    ref="userServiceImpl"/>
     <!-- 4.1 和本地bean一样实现服务 -->
     <bean id="userServiceImpl" class="com.chen.dubbo.service.impl.UserServiceImpl"/>
+
+    <!--配置监控中心-->
+    <!--从注册中心获取监控中心地址-->
+    <!--<dubbo:monitor protocol="registry"/>-->
+    <dubbo:monitor address="127.0.0.1:7070"/>
 </beans>

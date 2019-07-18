@@ -16,4 +16,8 @@
     <!-- 生成远程服务代理，可以和本地bean一样使用userService -->
     <dubbo:reference id="userService" interface="com.chen.dubbo.api.service.UserService" />
 
+    <!--配置监控中心-->
+    <!--从注册中心获取监控中心地址-->
+    <!--<dubbo:monitor protocol="registry"/>-->
+    <dubbo:monitor address="127.0.0.1:7070"/>
 </beans>
