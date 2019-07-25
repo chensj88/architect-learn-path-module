@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group 'com.winning.devops.cloud'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+// 指定使用仓库
+repositories {
+    mavenLocal()
+    maven { name "Alibaba" ; url "https://maven.aliyun.com/repository/public" }
+    maven { name "gradle-plugin" ; url "https://maven.aliyun.com/repository/gradle-plugin" }
+    mavenCentral() // 中央仓库
+}
+
+//
+/*
+*  gradle工程的所有依赖都是放在dependencies属性内
+* 每一个jar包的坐标都有三个基本元素，与maven中一样，分别代表group、name、version
+* 并且对于每一个jar包都有一个作用域的设置，比如下面的junit，它的作用域就是在test起作用
+* 所以，在添加jar包的时候，都会带上jar的作用域
+*/
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    // https://mvnrepository.com/artifact/org.springframework/spring-context
+    compile group: 'org.springframework', name: 'spring-context', version: '5.1.5.RELEASE'
+
+}

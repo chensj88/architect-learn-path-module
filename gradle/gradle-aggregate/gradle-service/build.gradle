@@ -1,0 +1,4 @@
+// 配置项目依赖
+dependencies {
+    compile project(":gradle-dao")
+}

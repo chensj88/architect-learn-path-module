@@ -1,0 +1,5 @@
+rootProject.name = 'gradle-aggregate'
+include 'gradle-dao'
+include 'gradle-service'
+include 'gradle-web'
+
