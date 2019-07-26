@@ -1,4 +1,10 @@
 spring:
+  flyway:
+    baseline-on-migrate: true
+    clean-disabled: true
+    ignore-missing-migrations: true
+    locations: classpath:db/migration
+    enabled: true
   application:
     name: cloud-flyway
   cloud:
@@ -26,8 +32,10 @@ spring:
         health-check-path: /actuator/health
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
-    url: jdbc:p6spy:mysql://172.17.1.242:3306/flyway
+#    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://172.17.1.242:3306/flyway
+#    url: jdbc:p6spy:mysql://172.17.1.242:3306/flyway
     username: root
     password: 123456
     # Hikari 连接池配置 ------ 详细配置请访问：https://github.com/brettwooldridge/HikariCP
@@ -52,6 +60,7 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
       ddl-auto: none
+    open-in-view: false
   redis:
     host: 172.17.1.242
     database: 2
@@ -68,21 +77,12 @@ server:
   port: 9001
 # 运行状态监控
 management:
-  #  服务端口
-  #  server:
-  #    port: 9090
   endpoints:
-    #    web访问的路径前缀
     web:
-#      base-path: /monitor
-      #      设置web情况下暴露的端点
       exposure:
         include: '*'
-  # 单个端点设置
   endpoint:
-    #    关闭系统端点禁止使用
     shutdown:
       enabled: false
-    #   显示详细的健康信息
     health:
       show-details: always
