@@ -1,0 +1,84 @@
+spring:
+  application:
+    name: cloud-flyway
+  cloud:
+    consul:
+      host: 172.17.1.242
+      port: 8500
+      discovery:
+        # 标记
+        tags: version=1.0,author=devops
+        # 是否注册服务 设置不需要注册到 consul 中
+        register: false
+        # 配置 Consul 健康检查频率，也就是心跳频率
+        health-check-interval: 20s
+        # 提供IP模式
+        prefer-ip-address: true
+        # 配置 Spring Boot服务的主机地址
+        hostname: ${spring.cloud.client.ip-address}
+        # Consul 注册的服务名称
+        service-name: ${spring.application.name}
+        # Consul 注册服务 ID
+        # instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+        # 健康检查网址
+        health-check-url: http://${spring.cloud.consul.discovery.hostname}:${server.port}/actuator/health
+        # path
+        health-check-path: /actuator/health
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    url:  jdbc:p6spy:mysql://172.17.1.242:3306/flyway?useSSL=false
+    username: root
+    password: 123456
+    # Hikari 连接池配置 ------ 详细配置请访问：https://github.com/brettwooldridge/HikariCP
+    hikari:
+      # 最小空闲连接数量
+      minimum-idle: 5
+      # 空闲连接存活最大时间，默认600000（10分钟
+      idle-timeout: 180000
+      ## 连接池最大连接数，默认是10
+      maximum-pool-size: 10
+      ## 此属性控制从池返回的连接的默认自动提交行为,默认值：true
+      auto-commit: true
+      ## 连接池母子
+      pool-name: HikariCP
+      ## 此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
+      max-lifetime: 1800000
+      ## 数据库连接超时时间,默认30秒，即30000
+      connection-timeout: 30000
+      ## 验证SQL
+      connection-test-query: SELECT 1
+  redis:
+    host: 172.17.1.242
+    database: 2
+    port: 6000
+    ssl: false
+    timeout: 5000
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: -1ms
+server:
+  port: 9001
+# 运行状态监控
+management:
+  #  服务端口
+  #  server:
+  #    port: 9090
+  endpoints:
+    #    web访问的路径前缀
+    web:
+#      base-path: /monitor
+      #      设置web情况下暴露的端点
+      exposure:
+        include: '*'
+  # 单个端点设置
+  endpoint:
+    #    关闭系统端点禁止使用
+    shutdown:
+      enabled: false
+    #   显示详细的健康信息
+    health:
+      show-details: always
